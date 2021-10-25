@@ -8,12 +8,16 @@ on:
 
 env:
   REPO_BASE: i40mc.azurecr.io/i40mp
-  
+
 jobs:
   build-and-push-image:
     name: Build and push image
     runs-on: ubuntu-20.04
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
