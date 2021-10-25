@@ -1,0 +1,25 @@
+name: Staging (Build)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  REPO_BASE: i40mc.azurecr.io/i40mp
+  
+jobs:
+  build-and-push-image:
+    name: Build and push image
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+        with:
+          install: true
+
+      - name: Build image
+        run: |
+          docker build -t ${{ env.REPO_BASE }}/doghouse:${{ github.sha }} -t ${{ env.REPO_BASE }}/doghouse:latest .

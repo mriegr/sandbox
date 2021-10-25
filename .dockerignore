@@ -1,0 +1,6 @@
+secrets
+*.map
+stats.json
+Dockerfile
+Dockerfile.dev
+node_modules
