@@ -37,4 +37,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REPO_BASE }}/doghouse:${{ github.sha }},{{ env.REPO_BASE }}/doghouse:latest
+          tags: ${{ env.REPO_BASE }}/doghouse:${{ github.sha }},${{ env.REPO_BASE }}/doghouse:latest
